@@ -143,6 +143,7 @@ namespace ASWS {
                 for (int ex = 0; ex < loop.exits.Count; ex++)
                 {
                     var curr = loop.exits[ex];
+                    if (curr == null) continue;
                     var next = curr.Next;
                     float commulativeDistance = 0;
 
@@ -158,6 +159,7 @@ namespace ASWS {
                         }
                         next = next.Next;
                     }
+                    if(curr.Branches!=null)
                     for (int j = 0; j < curr.Branches.Count; j++)
                     {
 
@@ -269,7 +271,6 @@ namespace ASWS {
 
         public List<Waypoint> EvalGraph(Waypoint source ,Waypoint dest)
         {
-
             if (source.parent == dest.parent)
                 return GetpathBetweenPoints(source, dest);
 

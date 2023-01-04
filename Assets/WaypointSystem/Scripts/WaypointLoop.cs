@@ -108,6 +108,7 @@ namespace ASWS {
 
         public Waypoint AddWaypointAttEnd(Vector3 position)
         {
+            
             if (waypoints == null)
                 waypoints = new List<Waypoint>();
             Waypoint newPoint = new GameObject("Waypoint" + waypoints.Count, typeof(Waypoint)).GetComponent<Waypoint>();
@@ -133,6 +134,8 @@ namespace ASWS {
             newPoint.transform.position = position;
             newPoint.parent = this;
             waypoints.Add(newPoint);
+            newPoint.normalDir = Vector3.ProjectOnPlane(Vector3.up, (newPoint.HandleA.position - newPoint.transform.position).normalized).normalized;
+
             return newPoint;
         }
 
@@ -347,8 +350,12 @@ namespace ASWS {
 
             waypoints.Insert(index+1,newPoint);
             newPoint.parent = this;
+
+            newPoint.normalDir =Vector3.ProjectOnPlane(Vector3.up, (newPoint.HandleA.position - newPoint.transform.position).normalized).normalized;
+            
             return newPoint;
         }
+
         public void Setup(WaypointSystem par)
         {
             waypoints = new List<Waypoint>();

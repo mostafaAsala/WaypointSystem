@@ -544,13 +544,16 @@ namespace ASWS {
 
         public void DrawLoopWaypoints(WaypointLoop loop)
         {
-            DrawWiredSphereHandle(loop.waypoints[0].transform.position, minDistanceToPoint+0.1f, FirstWaypointColor);
-            for (int i = 0; i < loop.waypoints.Count; i++)
+            if (loop.waypoints!=null && loop.waypoints.Count > 0)
             {
-                var point = loop.waypoints[i];
-                
-                DrawPoint(point, waypointColor, minDistanceToPoint,loop.Is2d,loop.transform.position.y);
+                DrawWiredSphereHandle(loop.waypoints[0].transform.position, minDistanceToPoint + 0.1f, FirstWaypointColor);
+                for (int i = 0; i < loop.waypoints.Count; i++)
+                {
+                    var point = loop.waypoints[i];
 
+                    DrawPoint(point, waypointColor, minDistanceToPoint, loop.Is2d, loop.transform.position.y);
+
+                }
             }
         }
         public void DrawLoopOrigin(WaypointLoop loop, Color color, float size = 0.5f)
@@ -697,8 +700,7 @@ namespace ASWS {
 
                 Vector3 dir = point.getForwardVec();
                 var norm = Vector3.Cross(Vector3.right, dir).normalized;
-                //Vector3.ProjectOnPlane(point.normalDir, norm);
-
+                
                 EditorUtility.SetDirty(self);
 
             }
@@ -722,8 +724,7 @@ namespace ASWS {
 
                 Vector3 dir = point.getForwardVec();
                 var norm = Vector3.Cross(Vector3.right, dir).normalized;
-                //Vector3.ProjectOnPlane(point.normalDir, norm);
-
+                
                 EditorUtility.SetDirty(self);
 
             }

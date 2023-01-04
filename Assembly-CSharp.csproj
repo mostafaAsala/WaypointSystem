@@ -56,14 +56,14 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\WaypointSystem\Examples\Path.cs" />
+    <Compile Include="Assets\WaypointSystem\Scripts\Waypoint.cs" />
+    <Compile Include="Assets\WaypointSystem\Examples\PathFollower.cs" />
     <Compile Include="Assets\WaypointSystem\Resources\ASWS_Resources.cs" />
+    <Compile Include="Assets\WaypointSystem\Scripts\AslaMath.cs" />
     <Compile Include="Assets\WaypointSystem\Scripts\WaypointLoop.cs" />
     <Compile Include="Assets\WaypointSystem\Scripts\Bezier.cs" />
-    <Compile Include="Assets\WaypointSystem\Scripts\Waypoint.cs" />
-    <Compile Include="Assets\WaypointSystem\Scripts\AslaMath.cs" />
     <Compile Include="Assets\WaypointSystem\Scripts\WaypointSystem.cs" />
-    <Compile Include="Assets\WaypointSystem\Examples\PathFollower.cs" />
+    <Compile Include="Assets\WaypointSystem\Examples\Path.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
