@@ -15,7 +15,7 @@ namespace ASWS {
         public int WorldSize;
         public bool autoset = false;
         public bool freeMoveHandles = false;
-        
+        public bool GraphUpdated = false;
         public ConnectionType curveType;
         public void Awake()
         {
@@ -113,6 +113,7 @@ namespace ASWS {
         }
         public void CreaeGraph()
         {
+            GraphUpdated = true;
             markEnEx();
             waypointgraph = new Dictionary<Waypoint, List<WaypointLink>>();
 
@@ -271,6 +272,7 @@ namespace ASWS {
 
         public List<Waypoint> EvalGraph(Waypoint source ,Waypoint dest)
         {
+            if (!GraphUpdated) Debug.LogWarning("Graph is not Updated, this may lead to unwanted behavior Please Recompile the your System (WaypointSystem.CreateGraph();)");
             if (source.parent == dest.parent)
                 return GetpathBetweenPoints(source, dest);
 

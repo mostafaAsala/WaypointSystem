@@ -224,7 +224,7 @@ namespace ASWS {
                     l.exits = new List<Waypoint>();
                 }
             }
-            if (GUILayout.Button("Create graph"))
+            if (GUILayout.Button("Compile graph"))
             {
                 self.CreaeGraph();
             }
@@ -440,11 +440,14 @@ namespace ASWS {
                                 EditorUtility.SetDirty(self);
                                 if (self.autoset || loop.autoSet)
                                     loop.automaticSetup();
+                                self.GraphUpdated = false;
                             }
                             else
                             {
                                 SelectedWaypoint = loop.AddWaypointAttEnd(hitPoint);
+                                self.GraphUpdated = false;
                                 EditorUtility.SetDirty(self);
+                                self.GraphUpdated = false;
                             }
                         }
                         else if (Event.current.button == 1)
@@ -457,6 +460,7 @@ namespace ASWS {
                                 if (w != null)
                                     EditorUtility.SetDirty(self);
                                 loop.RemovePoint(w);
+                                self.GraphUpdated = false;
                             }
 
                         }
@@ -894,6 +898,7 @@ namespace ASWS {
                 
                 if (GUILayout.Button(new GUIContent("Scan waypoints","Get all children waypoints in hirarchey")))
                 {
+                    self.GraphUpdated = false;
                     loop.ScanLoop();
                     EditorUtility.SetDirty(self);
                 }

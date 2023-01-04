@@ -273,6 +273,7 @@ namespace ASWS {
 
         public Waypoint GetClosestWaypoint(Vector3 point,float minsnap=1f)
         {
+
             float mindist = float.MaxValue;
             Waypoint Cpoint=null;
             for (int i = 0; i < waypoints.Count; i++)

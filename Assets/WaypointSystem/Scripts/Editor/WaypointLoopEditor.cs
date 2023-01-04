@@ -56,6 +56,7 @@ namespace ASWS
                 if (rayhit)
                 {
                     if (create)
+                    {
                         if (selectedSegment != -1)
                         {
                             self.AddWaypoint(hitInfo.point, selectedSegment);
@@ -64,6 +65,8 @@ namespace ASWS
                         }
                         else
                             self.AddWaypointAttEnd(hitInfo.point);
+                        
+                    }
                     else if (delete)
                     {
 
